@@ -4,7 +4,7 @@ echo Enter VPS provider name
 read provider
 
 echo "Running tests.."
-rm ./results >/dev/null
+rm ./results 2>/dev/null
 echo '---------'                                                                                       >results
 echo 'Provider'                                                                                        >results
 echo 'arg, should be VPS provider name'                                                                >results
