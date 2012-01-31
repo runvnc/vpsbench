@@ -21,6 +21,10 @@ echo 'ip addr show eth0 | grep inet'                              >results
 echo '---'                                                        >results
 ip addr show eth0 | grep inet                                     >results
 echo '---------'                                                  >results
+echo 'RAM'                                                        >results
+echo '---'
+free -t -m | grep Mem                                             >results
+echo '---------'                                                  >results
 echo 'CPU'                                                        >results
 echo 'time ./gcdmany.sh'                                          >results
 echo '---'
