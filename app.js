@@ -12,14 +12,14 @@
     switch (req.url) {
       case "/gcdmany.sh":
         return res.end(fs.readFileSync("gcdmany.sh"));
-      case "/":
-        return res.end(fs.readFileSync("index.html"));
-      case "/testdisk.sh":
-        return res.end(fs.readFileSync("testdisk.sh"));
+      case "/disk.sh":
+        return res.end(fs.readFileSync("disk.sh"));
       case "/dobench.sh":
         return res.end(fs.readFileSync("dobench.sh"));
       case "/process":
         return res.end(processor.newdata(req));
+      case "/":
+        return res.end(fs.readFileSync("index.html"));
     }
   });
 
