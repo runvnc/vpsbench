@@ -27,7 +27,7 @@ echo '---------'                                                                
 echo 'CPU'                                                                                             >results
 echo '(time ./gcdmany.sh) 2>&1'                                                                        >results
 echo '---'                                                                                             >results
-curl -s http://bench.willsave.me/gcdmany.sh > gcdmany.sh
+curl -s http://bench.willsave.me/gcdmany.sh 2>dev/null > gcdmany.sh
 chmod u+x gcdmany.sh
 (time ./gcdmany.sh) 2>&1                                                                               >results
 echo '---------'                                                                                       >results
