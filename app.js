@@ -1,13 +1,26 @@
-var http = require('http');
-var fs = require('fs');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  console.log(req.url);
-  if (req.url=='/gcdmany.sh') {
-    var gcd = fs.readFileSync('gcdmany.sh');
-    res.end(gcd);
-  } else { 
-    var index = fs.readFileSync('index.html');    
-    res.end(index);
-  }
-}).listen(3000);
+(function() {
+  var app, fs, http, processor;
+
+  http = require("http");
+
+  fs = require("fs");
+
+  processor = require("./processor");
+
+  app = http.createServer(function(req, res) {
+    res.writeHead(200);
+    switch (req.url) {
+      case "/gcdmany.sh":
+        return res.end(fs.readFileSync("gcdmany.sh"));
+      case "/":
+        return res.end(fs.readFileSync("index.html"));
+      case "/dobench.sh":
+        return res.end(fs.readFileSync("dobench.sh"));
+      case "/process":
+        return res.end(processor.newdata(req));
+    }
+  });
+
+  app.listen(3000);
+
+}).call(this);

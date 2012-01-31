@@ -19,5 +19,3 @@ do
   gcd 9876543210987653 87923
 done
 
-echo $dividend
-
