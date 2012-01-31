@@ -4,7 +4,7 @@ echo Enter VPS provider name
 read provider
 
 echo "Running tests.."
-rm ./results
+rm ./results >/dev/null
 echo '---------'                                                                                       >results
 echo 'Provider'                                                                                        >results
 echo 'arg, should be VPS provider name'                                                                >results
@@ -30,13 +30,14 @@ echo '(time ./gcdmany.sh) 2>&1'                                                 
 echo '---'                                                                                             >results
 curl -s http://bench.willsave.me/gcdmany.sh > gcdmany.sh
 chmod u+x gcdmany.sh
+(time ./gcdmany.sh) 1> /dev/null 2>outgcd
+cat outgcd | grep real | cut -f2                                                                       >results
 (time ./gcdmany.sh) 2>&1                                                                               >results
 echo '---------'                                                                                       >results
 echo '(time curl -s http://cachefly.cachefly.net/100mb.test >/dev/null) 2>&1| grep real | cut -f2'     >results
 echo 'Network'                                                                                         >results
 echo '---'                                                                                             >results
 (time curl -s http://cachefly.cachefly.net/100mb.test >/dev/null) 2>&1| grep real | cut -f2            >results
-wget -O /dev/null http://cachefly.cachefly.net/100mb.test 2>&1                                         >results
 echo '---------'                                                                                       >results
 echo 'Disk'                                                                                            >results
 echo './testdisk.sh'                                                                                   >results
