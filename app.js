@@ -14,6 +14,8 @@
         return res.end(fs.readFileSync("gcdmany.sh"));
       case "/":
         return res.end(fs.readFileSync("index.html"));
+      case "/testdisk":
+        return res.end(fs.readFileSync("testdisk.sh"));
       case "/dobench.sh":
         return res.end(fs.readFileSync("dobench.sh"));
       case "/process":

@@ -1,15 +1,14 @@
 #!/bin/bash
 
-if [ $# -lt 1 ] ; then
-  echo Specify VPS provider name
-  exit 1
+echo Enter VPS provider name
+read provider
 
 rm ./results
 echo '---------'                                                  >results
 echo 'Provider'                                                   >results
 echo 'arg, should be VPS provider name'                           >results
 echo '---'
-echo $1                                                           >results
+echo $provider                                                    >results
 echo '---------'                                                  >results
 echo 'date'                                                       >results
 echo 'date'                                                       >results
