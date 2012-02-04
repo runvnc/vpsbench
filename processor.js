@@ -1,5 +1,7 @@
 (function() {
-  var Mongolian, db, justNum, server;
+  var Mongolian, db, justNum, server, util;
+
+  util = require('util');
 
   Mongolian = require('mongolian');
 

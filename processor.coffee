@@ -1,3 +1,4 @@
+util = require 'util'
 Mongolian = require 'mongolian'
 server = new Mongolian
 db = server.db 'bench'
