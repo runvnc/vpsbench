@@ -8,10 +8,11 @@ app = http.createServer (req, res) ->
   switch req.url
     when "/dobench.sh" then   res.end fs.readFileSync("dobench.sh")
     when "/process"
+      body = ''
       req.on 'data', (data) ->
         body += data;
       req.on 'end', ->
-        res.end processor.newdata(req)
+        res.end processor.newdata(body)
     when "/" then             res.end fs.readFileSync("index.html")
 
 app.listen 3000
