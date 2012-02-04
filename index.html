@@ -2,6 +2,11 @@
 <html>
 <head>
 <title>SimpleVPS Benchmarks</title>
+<style>
+  code {
+    font-size: 12px;
+  }
+</style>
 </head>
 
 <body>
@@ -10,8 +15,7 @@
 Log in to your VPS with ssh and run this command exactly as it is written (copy and paste into terminal window):<br/>
 
 <pre><code>echo "Enter VPS provider name (e.g. Amazon, Linode):"; read provider;echo $provider >prov; echo "Enter RAM size (MB):"; read ram; echo $ram >ram; curl -s http://bench.willsave.me/dobench.sh > dobench.sh
-chmod u+x dobench.sh
-./dobench.sh</pre></code>
+</pre></code>
 
 <h1>Google Ad to Support this site</h1>
 
