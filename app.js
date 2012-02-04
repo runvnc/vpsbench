@@ -10,10 +10,6 @@
   app = http.createServer(function(req, res) {
     res.writeHead(200);
     switch (req.url) {
-      case "/gcdmany.sh":
-        return res.end(fs.readFileSync("gcdmany.sh"));
-      case "/disk.sh":
-        return res.end(fs.readFileSync("disk.sh"));
       case "/dobench.sh":
         return res.end(fs.readFileSync("dobench.sh"));
       case "/process":
