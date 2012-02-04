@@ -5,6 +5,7 @@
 <style>
   code {
     font-size: 12px;
+    width: 90%;    
   }
 </style>
 </head>
@@ -14,8 +15,8 @@
 <h1>Benchmarking your own VPS</h1>
 Log in to your VPS with ssh and run this command exactly as it is written (copy and paste into terminal window):<br/>
 
-<pre><code>echo "Enter VPS provider name (e.g. Amazon, Linode):"; read provider;echo $provider >prov; echo "Enter RAM size (MB):"; read ram; echo $ram >ram; curl -s http://bench.willsave.me/dobench.sh > dobench.sh
-</pre></code>
+<pre>echo "Enter VPS provider (e.g. Amazon, Linode):"; read provider;echo $provider >prov; echo "Enter RAM (MB):"; read ram; echo $ram >ram; curl -s http://bench.willsave.me/dobench.sh > dobench.sh
+</pre>
 
 <h1>Google Ad to Support this site</h1>
 
