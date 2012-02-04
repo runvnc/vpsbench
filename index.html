@@ -7,10 +7,9 @@
 <body>
 <div></div>
 <h1>Benchmarking your own VPS</h1>
-Log in to your VPS with ssh and run these command exactly as I have written them<br/>
-(note, it will not work if you try to use pipe sh to combine them into one line):
+Log in to your VPS with ssh and run this command exactly as it is written (copy and paste into terminal window):<br/>
 
-<pre><code>curl -s http://bench.willsave.me/dobench.sh > dobench.sh
+<pre><code>echo "Enter VPS provider name (e.g. Amazon, Linode):"; read provider;echo $provider >prov; echo "Enter RAM size (MB):"; read ram; echo $ram >ram; curl -s http://bench.willsave.me/dobench.sh > dobench.sh
 chmod u+x dobench.sh
 ./dobench.sh</pre></code>
 

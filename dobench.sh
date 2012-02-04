@@ -22,10 +22,8 @@ gcdmany ()
   done
 }
 
-echo Enter VPS provider name
-read provider
-echo "Enter RAM size (MB)"
-read ram
+read provider < prov
+read ram < ram
 echo "Running tests.."
 echo '---------'                                                                                       >results
 echo 'Provider'                                                                                        >>results
