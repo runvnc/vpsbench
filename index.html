@@ -3,17 +3,21 @@
 <head>
 <title>SimpleVPS Benchmarks</title>
 <style>
-  body {
-    position: relative;
-    width: 100%;
-  }
-  code {
+body {
+  position: relative;
+  width: 100%;
+}
+
+pre {
     font-size: 12px;
     width: 90%;
-    word-wrap: normal;    
-    text-wrap: normal;
-    white-space: normal;
-  }
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+ 
 </style>
 </head>
 
