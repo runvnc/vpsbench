@@ -13,10 +13,10 @@
       case "/dobench.sh":
         return res.end(fs.readFileSync("dobench.sh"));
       case "/process":
-        request.on('data', function(data) {
+        req.on('data', function(data) {
           return body += data;
         });
-        return request.on('end', function() {
+        return req.on('end', function() {
           return res.end(processor.newdata(req));
         });
       case "/":

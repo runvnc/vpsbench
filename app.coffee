@@ -8,9 +8,9 @@ app = http.createServer (req, res) ->
   switch req.url
     when "/dobench.sh" then   res.end fs.readFileSync("dobench.sh")
     when "/process"
-      request.on 'data', (data) ->
-            body += data;
-      request.on 'end', ->
+      req.on 'data', (data) ->
+        body += data;
+      req.on 'end', ->
         res.end processor.newdata(req)
     when "/" then             res.end fs.readFileSync("index.html")
 
