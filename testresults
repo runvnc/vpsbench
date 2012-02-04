@@ -1,0 +1,46 @@
+Running tests..
+---------
+Provider
+arg, should be VPS provider name
+---
+RackSpace
+---------
+date
+date
+Sat Feb  4 07:57:49 UTC 2012
+---
+---------
+IP address
+ip addr show eth0 | grep inet
+---
+    inet 108.166.121.179/24 brd 108.166.121.255 scope global eth0
+    inet6 fe80::4240:5cff:feea:3ca7/64 scope link 
+---------
+RAM
+---
+256
+---------
+CPU
+gcdmany()
+---
+15 seconds
+---------
+Network
+(time curl -s http://cachefly.cachefly.net/100mb.test >/dev/null) 2>&1| grep real | cut -f2
+---
+0m1.094s
+---------
+Disk Write
+dd if=/dev/zero of=ddfile bs=8k count=250000 && sync
+---
+250000+0 records in
+250000+0 records out
+2048000000 bytes (2.0 GB) copied, 17.4898 s, 117 MB/s
+---------
+Disk Read
+dd if=ddfile of=/dev/null bs=8k
+---
+250000+0 records in
+250000+0 records out
+2048000000 bytes (2.0 GB) copied, 20.1457 s, 102 MB/s
+
