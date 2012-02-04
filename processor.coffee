@@ -1,3 +1,3 @@
 exports.newdata = (req) ->
-  console.log newdata
+  console.log req
   

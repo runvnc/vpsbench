@@ -1,7 +1,7 @@
 (function() {
 
   exports.newdata = function(req) {
-    return console.log(newdata);
+    return console.log(req);
   };
 
 }).call(this);
