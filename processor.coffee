@@ -6,6 +6,7 @@ justNum = (n) ->
   n.replace(/[^0-9\n\.\,]/g, '')
 
 exports.parse = (data) ->
+  console.log "Trying to parse " + data
   data = data + " "
   sections = data.split "\n---------\n" 
   sections.splice 0, 1  
@@ -32,10 +33,13 @@ exports.parse = (data) ->
         val = val[0]
       else                      val = justNum keep[2]
     obj[name] = val
+  console.log "returning from parse"
+  console.log util.inspect(obj)
   obj
 
 exports.newdata = (data) ->
   record = exports.parse data
   results = db.collection 'results'
+  console.log "inserting "
   results.insert record
   

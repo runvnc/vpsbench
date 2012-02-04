@@ -13,6 +13,7 @@
 
   exports.parse = function(data) {
     var keep, line, lines, name, obj, parts, section, sections, val, _i, _len;
+    console.log("Trying to parse " + data);
     data = data + " ";
     sections = data.split("\n---------\n");
     sections.splice(0, 1);
@@ -58,6 +59,8 @@
       }
       obj[name] = val;
     }
+    console.log("returning from parse");
+    console.log(util.inspect(obj));
     return obj;
   };
 
@@ -65,6 +68,7 @@
     var record, results;
     record = exports.parse(data);
     results = db.collection('results');
+    console.log("inserting ");
     return results.insert(record);
   };
 

@@ -28,6 +28,7 @@
           return body += data;
         });
         return req.on('end', function() {
+          console.log("Processing " + data);
           return res.end(processor.newdata(body));
         });
       case "/":
