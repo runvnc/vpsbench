@@ -39,9 +39,13 @@
     multisort(results, ['RAM', score]);
     for (_i = 0, _len = results.length; _i < _len; _i++) {
       row = results[_i];
-      row.date = new Date(row.date);
-      row.CPU = 100 - row.CPU;
-      row.Network = Math.round(row.Network);
+      try {
+        row.date = new Date(row.date).toLocaleDateString();
+        row.CPU = 100 - row.CPU;
+        row.Network = Math.round(row.Network);
+      } catch (e) {
+        console.log(e);
+      }
     }
     return results;
   };

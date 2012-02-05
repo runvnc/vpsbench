@@ -24,9 +24,12 @@ score = (obj) ->
 process = (results) ->
   multisort results, [ 'RAM', score ]
   for row in results
-    row.date = new Date(row.date)
-    row.CPU = 100 - row.CPU
-    row.Network = Math.round(row.Network)
+    try
+      row.date = new Date(row.date).toLocaleDateString()
+      row.CPU = 100 - row.CPU
+      row.Network = Math.round(row.Network)
+    catch e
+      console.log e
   results
     
 datatable = (rows) ->
