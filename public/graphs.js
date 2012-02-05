@@ -61,7 +61,7 @@
 
   datatable = function(rows) {
     var col, cols, key, out, row, val, _i, _j, _k, _len, _len2, _len3, _ref;
-    cols = [];
+    cols = ['Provider', 'RAM', 'IP address', 'Network', 'CPU', 'Disk Read', 'Disk Write', 'Total'];
     _ref = rows[0];
     for (key in _ref) {
       val = _ref[key];

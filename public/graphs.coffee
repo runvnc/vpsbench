@@ -40,7 +40,7 @@ format = (name, val) ->
     val
 
 datatable = (rows) ->
-  cols = []
+  cols = ['Provider','RAM','IP address', 'Network', 'CPU', 'Disk Read', 'Disk Write', 'Total']
   for key, val of rows[0]
     cols.push key
   out = "<table><thead>" 
