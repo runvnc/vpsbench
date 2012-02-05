@@ -25,7 +25,7 @@
       case "/process":
         body = '';
         req.on('data', function(data) {
-          return body += data + "\n";
+          return body += data;
         });
         return req.on('end', function() {
           console.log("Processing " + body);

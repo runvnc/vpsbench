@@ -16,7 +16,7 @@ app = http.createServer (req, res) ->
     when "/process"
       body = ''
       req.on 'data', (data) ->
-        body += data + "\n";
+        body += data
       req.on 'end', ->
         console.log "Processing " + body
         res.end processor.newdata(body)
