@@ -71,5 +71,5 @@ echo "dd if=ddfile of=/dev/null bs=8k"                                          
 echo '---'                                                                                             >>results
 (dd if=ddfile of=/dev/null bs=8k 2>&1)                                                                 >>results
 cat results
-curl -d @results http://bench.willsave.me/process
+curl --data-binary @results http://bench.willsave.me/process
 rm results
