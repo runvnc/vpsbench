@@ -1,5 +1,5 @@
 (function() {
-  var multisort, order, process, score;
+  var datatable, multisort, order, process, score;
 
   order = function(a, b) {
     var ret;
@@ -38,11 +38,38 @@
     return multisort(results, ['RAM', score]);
   };
 
+  datatable = function(rows) {
+    var col, cols, key, out, row, val, _i, _j, _len, _len2, _ref;
+    cols = [];
+    _ref = rows[0];
+    for (key in _ref) {
+      val = _ref[key];
+      cols.push(key);
+    }
+    out = "<table><thead>";
+    for (_i = 0, _len = cols.length; _i < _len; _i++) {
+      col = cols[_i];
+      out += "<th>" + col + "</th>";
+    }
+    out += "</thead><tbody>";
+    for (_j = 0, _len2 = rows.length; _j < _len2; _j++) {
+      row = rows[_j];
+      out += "<tr>";
+      for (key in row) {
+        val = row[key];
+        out += "<td>" + val + "</td>";
+      }
+      out += "</tr>";
+    }
+    return out += "</tbody></table>";
+  };
+
   $(function() {
     return $.getJSON('/results', function(arr) {
       var sorted;
       sorted = process(arr);
-      return console.log(sorted);
+      console.log(sorted);
+      return $('#resultshere').html(datatable(sorted));
     });
   });
 

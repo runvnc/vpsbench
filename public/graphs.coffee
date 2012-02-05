@@ -24,9 +24,24 @@ score = (obj) ->
 process = (results) ->
   multisort results, [ 'RAM', score ]
     
+datatable = (rows) ->
+  cols = []
+  for key, val of rows[0]
+    cols.push key
+  out = "<table><thead>" 
+  for col in cols
+    out += "<th>#{col}</th>"
+  out += "</thead><tbody>"
+  for row in rows
+    out += "<tr>"
+    for key, val of row
+      out += "<td>#{val}</td>"
+    out += "</tr>"
+  out += "</tbody></table>"
 
 $ ->
   $.getJSON '/results', (arr) ->
     sorted = process arr
-    console.log sorted 
+    console.log sorted
+    $('#resultshere').html datatable(sorted)
     
