@@ -26,6 +26,7 @@ app = http.createServer (req, res) ->
           console.log "Processing " + body
           res.end processor.newdata(body)
       when "/" then             res.end fs.readFileSync("index.html")
+      when "/indexnew.html" then res.end fs.readFileSync("indexnew.html")
   catch error
     console.log error
 
