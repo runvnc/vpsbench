@@ -23,7 +23,7 @@
         return res.end(fs.readFileSync("dobench.sh"));
       case "/results":
         return db.collection('results').find().toArray(function(err, arr) {
-          return res.end(util.inspect(arr));
+          return res.end(JSON.stringify(arr));
         });
       case "/process":
         body = '';
