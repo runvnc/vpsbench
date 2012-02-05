@@ -61,9 +61,9 @@ echo '---'                                                                      
 (time curl -s http://cachefly.cachefly.net/100mb.test >/dev/null) 2>&1| grep real | cut -f2            >>results
 echo '---------'                                                                                       >>results
 echo 'Disk Write'                                                                                      >>results
-echo "dd if=/dev/zero of=ddfile bs=8k count=250000 && sync"                                            >>results
+echo "dd if=/dev/zero of=ddfile bs=8k count=437500 && sync"                                            >>results
 echo '---'                                                                                             >>results
-(dd if=/dev/zero of=ddfile bs=8k count=250000 2>&1)                                                    >>results
+(dd if=/dev/zero of=ddfile bs=8k count=437500 2>&1)                                                    >>results
 sync 2>&1                                                                                              >>results
 echo '---------'                                                                                       >>results
 echo 'Disk Read'                                                                                       >>results

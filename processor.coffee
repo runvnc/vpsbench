@@ -35,6 +35,8 @@ exports.parse = (data) ->
           val = val[0]
           val = val.split ' '
           val = val[0]
+          if val > 350
+            return 'disk issue';           
         else                      val = justNum keep[2]
       obj[name] = val
     catch e
@@ -45,7 +47,10 @@ exports.parse = (data) ->
 exports.newdata = (data) ->
   try
     record = exports.parse data
-    results = db.collection 'results'
-    results.insert record
+    if record is 'disk issue'
+      console.log 'disk issue ' + data
+    else
+      results = db.collection 'results'
+      results.insert record    
   catch e
     console.log e 
