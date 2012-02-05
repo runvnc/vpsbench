@@ -22,6 +22,8 @@
       switch (req.url) {
         case "/dobench.sh":
           return res.end(fs.readFileSync("dobench.sh"));
+        case "/graphs.js":
+          return res.end(fs.readFileSync("graphs.js"));
         case "/results":
           return db.collection('results').find().toArray(function(err, arr) {
             var obj, _i, _len;
