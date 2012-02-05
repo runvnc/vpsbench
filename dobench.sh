@@ -22,6 +22,16 @@ gcdmany ()
   done
 }
 
+bigfile ()
+{
+  curl -s http://cachefly.cachefly.net/100mb.test > 100mb.test
+  cat 100mb.test > disk.test
+  for i in {1..12}
+  do
+    cat 100mb.test >> disk.test
+  done
+}
+
 read provider < prov
 read ram < ram
 echo "Running tests.."
@@ -60,16 +70,19 @@ echo '(time curl -s http://cachefly.cachefly.net/100mb.test >/dev/null) 2>&1| gr
 echo '---'                                                                                             >>results
 (time curl -s http://cachefly.cachefly.net/100mb.test >/dev/null) 2>&1| grep real | cut -f2            >>results
 echo '---------'                                                                                       >>results
-echo 'Disk Write'                                                                                      >>results
-echo "dd if=/dev/zero of=ddfile bs=8k count=437500 && sync"                                            >>results
+echo 'Disk Transfer'                                                                                   >>results
+echo "dd if=disk.test of=ddfile bs=8k count=1 && sync"                                                 >>results
 echo '---'                                                                                             >>results
-(dd if=/dev/zero of=ddfile bs=8k count=437500 2>&1)                                                    >>results
-sync 2>&1                                                                                              >>results
-echo '---------'                                                                                       >>results
-echo 'Disk Read'                                                                                       >>results
-echo "dd if=ddfile of=/dev/null bs=8k"                                                                 >>results
-echo '---'                                                                                             >>results
-(dd if=ddfile of=/dev/null bs=8k 2>&1)                                                                 >>results
+bigfile
+DST=$(date +%s)
+(dd if=disk.test of=ddfile bs=8k count=1 2>&1)                                                         >>null
+sync 2>&1                                                                                              >>null
+DEN=$(date +%s)
+DELAPSED=$(($DST - $DEN))
+echo $DELAPSED seconds                                                                                 >>results
+rm ddfile
+rm disk.test
+rm 100mb.test
 cat results
 curl --data-binary @results http://bench.willsave.me/process
 rm results

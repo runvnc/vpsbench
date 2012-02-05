@@ -28,15 +28,6 @@ exports.parse = (data) ->
           val = 100.0 / val
         when "IP address"
           val = keep[2].match(/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/)[0]
-          #val = justNum ips[0]
-        when "Disk Write", "Disk Read"
-          val = keep[4]
-          val = val.match /[0-9\.]+\ [a-zA-Z]+\/s/
-          val = val[0]
-          val = val.split ' '
-          val = val[0]
-          if val > 350
-            return 'disk issue';           
         else                      val = justNum keep[2]
       obj[name] = val
     catch e

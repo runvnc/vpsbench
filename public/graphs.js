@@ -43,6 +43,7 @@
         row.Total = Math.round(1.0 / score(row));
         row.date = new Date(row.date).toLocaleDateString();
         row.CPU = 100 - row.CPU;
+        row['Disk Transfer'] = 100 - (row['Disk Transfer'] * 1.5);
         row.Network = Math.round(row.Network);
       } catch (e) {
         console.log(e);
