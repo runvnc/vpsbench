@@ -1,5 +1,6 @@
 http = require "http"
 fs = require "fs"
+util = require "util"
 processor = require "./processor"
 Mongolian = require 'mongolian'
 server = new Mongolian
@@ -12,7 +13,7 @@ app = http.createServer (req, res) ->
     when "/dobench.sh" then   res.end fs.readFileSync("dobench.sh")
     when "/results"
       results = db.collection('results').find()
-      res.end JSON.stringify(results)
+      res.end util.inspect(results)
     when "/process"
       body = ''
       req.on 'data', (data) ->

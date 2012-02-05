@@ -1,9 +1,11 @@
 (function() {
-  var Mongolian, app, db, fs, http, processor, server;
+  var Mongolian, app, db, fs, http, processor, server, util;
 
   http = require("http");
 
   fs = require("fs");
+
+  util = require("util");
 
   processor = require("./processor");
 
@@ -21,7 +23,7 @@
         return res.end(fs.readFileSync("dobench.sh"));
       case "/results":
         results = db.collection('results').find();
-        return res.end(JSON.stringify(results));
+        return res.end(util.inspect(results));
       case "/process":
         body = '';
         req.on('data', function(data) {
