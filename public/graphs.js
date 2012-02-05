@@ -52,7 +52,7 @@
   };
 
   datatable = function(rows) {
-    var col, cols, key, out, row, val, _i, _j, _len, _len2, _ref;
+    var col, cols, key, out, row, val, _i, _j, _k, _len, _len2, _len3, _ref;
     cols = [];
     _ref = rows[0];
     for (key in _ref) {
@@ -68,9 +68,9 @@
     for (_j = 0, _len2 = rows.length; _j < _len2; _j++) {
       row = rows[_j];
       out += "<tr>";
-      for (key in row) {
-        val = row[key];
-        out += "<td>" + val + "</td>";
+      for (_k = 0, _len3 = cols.length; _k < _len3; _k++) {
+        col = cols[_k];
+        out += "<td>" + row[col] + "</td>";
       }
       out += "</tr>";
     }

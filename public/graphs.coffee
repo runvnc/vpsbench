@@ -43,8 +43,8 @@ datatable = (rows) ->
   out += "</thead><tbody>"
   for row in rows
     out += "<tr>"
-    for key, val of row
-      out += "<td>#{val}</td>"
+    for col in cols
+      out += "<td>#{row[col]}</td>"
     out += "</tr>"
   out += "</tbody></table>"
 
