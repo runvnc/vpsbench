@@ -4,13 +4,14 @@ server = new Mongolian
 db = server.db 'bench'
 
 justNum = (n) ->
-  n.replace(/[^0-9\n\.\,]/g, '')
+  if n? then n.replace(/[^0-9\n\.\,]/g, '')
 
 exports.parse = (data) ->
   console.log "Trying to parse " + data
   data = data + " "
+  data = "\n" + data
   sections = data.split "\n---------\n" 
-  sections.splice 0, 1  
+  sections.splice 0,1
   parts = []
   obj = {}
   for section in sections
@@ -18,7 +19,7 @@ exports.parse = (data) ->
     keep = (line for line in lines when line isnt '---')
     name = keep[0]
     switch name
-      when "Provider" then      val = keep[1]
+      when "Provider" then      val = keep[2]
       when "RAM" then           val = keep[1]
       when "date" then          val = new Date(keep[2])
       when "Network"

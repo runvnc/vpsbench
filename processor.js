@@ -10,13 +10,14 @@
   db = server.db('bench');
 
   justNum = function(n) {
-    return n.replace(/[^0-9\n\.\,]/g, '');
+    if (n != null) return n.replace(/[^0-9\n\.\,]/g, '');
   };
 
   exports.parse = function(data) {
     var keep, line, lines, name, obj, parts, section, sections, val, _i, _len;
     console.log("Trying to parse " + data);
     data = data + " ";
+    data = "\n" + data;
     sections = data.split("\n---------\n");
     sections.splice(0, 1);
     parts = [];
@@ -36,7 +37,7 @@
       name = keep[0];
       switch (name) {
         case "Provider":
-          val = keep[1];
+          val = keep[2];
           break;
         case "RAM":
           val = keep[1];
