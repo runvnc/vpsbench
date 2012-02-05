@@ -36,7 +36,7 @@
       name = keep[0];
       switch (name) {
         case "Provider":
-          val = keep[2];
+          val = keep[1];
           break;
         case "RAM":
           val = keep[1];
