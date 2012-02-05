@@ -22,7 +22,7 @@ score = (obj) ->
   1.0 / n 
 
 process = (results) ->
-  multisort results, [ 'RAM', score ]
+  multisort results, [ score ]
   for row in results
     try
       row.Total = Math.round(1.0 / score(row))

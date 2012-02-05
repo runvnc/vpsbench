@@ -36,7 +36,7 @@
 
   process = function(results) {
     var row, _i, _len;
-    multisort(results, ['RAM', score]);
+    multisort(results, [score]);
     for (_i = 0, _len = results.length; _i < _len; _i++) {
       row = results[_i];
       try {
