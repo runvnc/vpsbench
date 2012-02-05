@@ -41,46 +41,5 @@ pre {
 
 <body>
 Down for maintenance, sorry (I'm working on making the disk test work better among other things.)
-<!--
-<div></div>
-<h1>Benchmarking your own VPS</h1>
-Log in to your VPS (800MB RAM or less only) with ssh and run this command exactly as it is written (copy and paste into terminal window):<br/>
-
-<pre>echo "Enter VPS provider (e.g. Amazon, Linode):"; read provider;echo $provider >prov; echo "Enter RAM (MB):"; read ram; echo $ram >ram; curl -s http://bench.willsave.me/dobench.sh | bash
-</pre>
-
-Then wait for it to finish.  It may take anywhere from a few minutes to several minutes.
-
-<br/><br/><strong>Because the disk test uses dd and because of the way file caching works, the disk speed test will only be reasonably accurate on machines with limited RAM.<br/>Please don't run on machines with > 800MB of RAM (I will just delete these results).</strong>
-
-<br/><br/>
-Github is <a href="https://github.com/ithkuil/vpsbench">here</a>.
-
-<h1>Google Ad to Support this site</h1>
-
-<script type="text/javascript"><!--
-google_ad_client = "ca-pub-1605512859966157";
-/* VPS Bench */
-google_ad_slot = "7953833964";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-<h1>Results</h1>
-
-<div id="resultshere"></div>
-
-<h1>Results in JSON</h1>
-<a href="http://bench.willsave.me/results">http://bench.willsave.me/results</a>
-
-<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<!-- <script src="http://omnipotent.net/jquery.sparkline/1.6/jquery.sparkline.min.js"></script> -->
-<!--<script src="/graphs.js"></script>-->
-
 </body>
-
 </html>
