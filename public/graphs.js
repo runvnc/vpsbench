@@ -35,15 +35,14 @@
   };
 
   process = function(results) {
-    var row, _i, _len, _results;
+    var row, _i, _len;
     multisort(results, ['RAM', score]);
-    _results = [];
     for (_i = 0, _len = results.length; _i < _len; _i++) {
       row = results[_i];
       row.CPU = 100 - row.CPU;
-      _results.push(row.Network = Math.round(row.Network));
+      row.Network = Math.round(row.Network);
     }
-    return _results;
+    return results;
   };
 
   datatable = function(rows) {

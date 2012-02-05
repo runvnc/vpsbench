@@ -26,6 +26,7 @@ process = (results) ->
   for row in results
     row.CPU = 100 - row.CPU
     row.Network = Math.round(row.Network)
+  results
     
 datatable = (rows) ->
   cols = []
