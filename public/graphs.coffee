@@ -5,7 +5,7 @@ order = (a, b) ->
 multisort = (arr, propfuncs) ->
   arr.sort (a, b) ->
     for propfunc in propfuncs
-      if typeof propfunc is func
+      if typeof propfunc is 'function'
         numa = propfunc a
         numb = propfunc b
         ret = order numa, numb        

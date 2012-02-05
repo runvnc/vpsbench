@@ -12,7 +12,7 @@
       var numa, numb, propfunc, ret, _i, _len;
       for (_i = 0, _len = propfuncs.length; _i < _len; _i++) {
         propfunc = propfuncs[_i];
-        if (typeof propfunc === func) {
+        if (typeof propfunc === 'function') {
           numa = propfunc(a);
           numb = propfunc(b);
           ret = order(numa, numb);
