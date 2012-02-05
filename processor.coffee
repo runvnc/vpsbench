@@ -18,6 +18,7 @@ exports.parse = (data) ->
     keep = (line for line in lines when line isnt '---')
     name = keep[0]
     switch name
+      when "Provider" then      val = keep[2]
       when "RAM" then           val = keep[1]
       when "date" then          val = new Date(keep[2])
       when "Network"
