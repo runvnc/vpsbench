@@ -44,6 +44,8 @@
           });
         case "/":
           return res.end(fs.readFileSync("index.html"));
+        case "/indexnew.html":
+          return res.end(fs.readFileSync("indexnew.html"));
       }
     } catch (error) {
       return console.log(error);
