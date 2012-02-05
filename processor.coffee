@@ -6,6 +6,18 @@ db = server.db 'bench'
 justNum = (n) ->
   if n? then n.replace(/[^0-9\n\.\,]/g, '')
 
+justNum2 = (n) ->
+  if not n? then return n
+  n = n.replace 's', ''
+  n = n.replace(/[^0-9m\n\.\,]/g, '')
+  if n.indexOf('m')>0
+    s = n.split('m')
+    m = s[0] * 1
+    n = s[1].replace(/[^0-9\n.\,]/g, '')
+    n = n * 1
+    n = n + 60.0 * m
+  n * 1.0
+
 exports.parse = (data) ->
   console.log "Trying to parse " + data
   data = data + " "
@@ -24,8 +36,10 @@ exports.parse = (data) ->
         when "RAM" then           val = keep[1]
         when "date" then          val = new Date(keep[2])
         when "Network"
-          val = justNum keep[2]
+          val = justNum2 keep[2]
+          console.log 'secs = ' + val
           val = 100.0 / val
+          console.log "network extracted " + val         
         when "IP address"
           val = keep[2].match(/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/)[0]
         else                      val = justNum keep[2]
