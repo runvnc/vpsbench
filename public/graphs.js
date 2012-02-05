@@ -39,7 +39,7 @@
   };
 
   $(function() {
-    return $.get('/results', function(arr) {
+    return $.getJSON('/results', function(arr) {
       var sorted;
       sorted = process(arr);
       return console.log(sorted);

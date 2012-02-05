@@ -26,7 +26,7 @@ process = (results) ->
     
 
 $ ->
-  $.get '/results', (arr) ->
+  $.getJSON '/results', (arr) ->
     sorted = process arr
     console.log sorted 
     
