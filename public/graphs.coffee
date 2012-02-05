@@ -23,6 +23,9 @@ score = (obj) ->
 
 process = (results) ->
   multisort results, [ 'RAM', score ]
+  for row in results
+    row.CPU = 100 - row.CPU
+    row.Network = Math.round(row.Network)
     
 datatable = (rows) ->
   cols = []
