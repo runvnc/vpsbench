@@ -25,6 +25,7 @@ process = (results) ->
   multisort results, [ 'RAM', score ]
   for row in results
     try
+      row.Total = 1.0 / score(row)
       row.date = new Date(row.date).toLocaleDateString()
       row.CPU = 100 - row.CPU
       row.Network = Math.round(row.Network)
