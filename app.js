@@ -23,6 +23,11 @@
         return res.end(fs.readFileSync("dobench.sh"));
       case "/results":
         return db.collection('results').find().toArray(function(err, arr) {
+          var obj, _i, _len;
+          for (_i = 0, _len = arr.length; _i < _len; _i++) {
+            obj = arr[_i];
+            delete obj['_id'];
+          }
           return res.end(JSON.stringify(arr));
         });
       case "/process":

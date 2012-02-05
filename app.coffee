@@ -13,6 +13,8 @@ app = http.createServer (req, res) ->
     when "/dobench.sh" then   res.end fs.readFileSync("dobench.sh")
     when "/results"
       db.collection('results').find().toArray (err, arr) ->
+        for obj in arr
+          delete obj['_id']           
         res.end JSON.stringify(arr)
     when "/process"
       body = ''
