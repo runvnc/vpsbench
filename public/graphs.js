@@ -39,7 +39,7 @@
     multisort(results, ['RAM', score]);
     for (_i = 0, _len = results.length; _i < _len; _i++) {
       row = results[_i];
-      row.date = row.date.toLocaleDateString();
+      row.date = new Date(row.date);
       row.CPU = 100 - row.CPU;
       row.Network = Math.round(row.Network);
     }
