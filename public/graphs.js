@@ -62,7 +62,7 @@
 
   datatable = function(rows) {
     var col, cols, out, row, _i, _j, _k, _len, _len2, _len3;
-    cols = ['Provider', 'RAM', 'IP address', 'Network', 'CPU', 'Disk Read', 'Disk Write', 'Total'];
+    cols = ['Provider', 'RAM', 'IP address', 'Network', 'CPU', 'Disk Transfer', 'Total'];
     out = "<table><thead>";
     for (_i = 0, _len = cols.length; _i < _len; _i++) {
       col = cols[_i];

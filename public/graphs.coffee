@@ -41,7 +41,7 @@ format = (name, val) ->
     val
 
 datatable = (rows) ->
-  cols = ['Provider','RAM','IP address', 'Network', 'CPU', 'Disk Read', 'Disk Write', 'Total']
+  cols = ['Provider','RAM','IP address', 'Network', 'CPU', 'Disk Transfer', 'Total']
   out = "<table><thead>" 
   for col in cols
     out += "<th>#{col}</th>"

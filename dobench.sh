@@ -75,7 +75,7 @@ echo "dd if=disk.test of=ddfile bs=8k count=1 && sync"                          
 echo '---'                                                                                             >>results
 bigfile
 DST=$(date +%s)
-(dd if=disk.test of=ddfile bs=8k count=1 2>&1)                                                         >>null
+(dd if=disk.test of=ddfile bs=8k count=157286 2>&1)                                                         >>null
 sync 2>&1                                                                                              >>null
 DEN=$(date +%s)
 DELAPSED=$(($DST - $DEN))
