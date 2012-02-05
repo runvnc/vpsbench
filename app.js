@@ -16,14 +16,15 @@
   db = server.db('bench');
 
   app = http.createServer(function(req, res) {
-    var body, results;
+    var body;
     res.writeHead(200);
     switch (req.url) {
       case "/dobench.sh":
         return res.end(fs.readFileSync("dobench.sh"));
       case "/results":
-        results = db.collection('results').find();
-        return res.end(util.inspect(results));
+        return db.collection('results').find().toArray(function(err, arr) {
+          return res.end(JSON.stringify(arr));
+        });
       case "/process":
         body = '';
         req.on('data', function(data) {

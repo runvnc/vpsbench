@@ -12,8 +12,8 @@ app = http.createServer (req, res) ->
   switch req.url
     when "/dobench.sh" then   res.end fs.readFileSync("dobench.sh")
     when "/results"
-      results = db.collection('results').find()
-      res.end util.inspect(results)
+      db.collection('results').find().toArray (err, arr) ->
+        res.end JSON.stringify arr
     when "/process"
       body = ''
       req.on 'data', (data) ->
