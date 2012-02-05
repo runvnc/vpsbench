@@ -16,9 +16,9 @@ multisort = (arr, propfuncs) ->
 
 score = (obj) ->
   n = (100 - obj.CPU)
-  n += obj.Network
-  n += obj['Disk Read']
-  n += obj['Disk Write']
+  n += obj.Network * 1
+  n += obj['Disk Read'] * 1
+  n += obj['Disk Write'] * 1
   1.0 / n 
 
 process = (results) ->
