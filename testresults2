@@ -1,0 +1,46 @@
+Running tests..
+---------
+Provider
+arg, should be VPS provider name
+---
+Linode
+---------
+date
+date
+Sat Feb  4 19:48:37 EST 2012
+---
+---------
+IP address
+ip addr show eth0 | grep inet
+---
+    inet 96.126.124.251/24 brd 96.126.124.255 scope global eth0
+    inet6 fe80::fcfd:60ff:fe7e:7cfb/64 scope link 
+---------
+RAM
+---
+512
+---------
+CPU
+gcdmany()
+---
+23 seconds
+---------
+Network
+(time curl -s http://cachefly.cachefly.net/100mb.test >/dev/null) 2>&1| grep real | cut -f2
+---
+0m4.767s
+---------
+Disk Write
+dd if=/dev/zero of=ddfile bs=8k count=250000 && sync
+---
+250000+0 records in
+250000+0 records out
+2048000000 bytes (2.0 GB) copied, 23.6118 s, 86.7 MB/s
+---------
+Disk Read
+dd if=ddfile of=/dev/null bs=8k
+---
+250000+0 records in
+250000+0 records out
+2048000000 bytes (2.0 GB) copied, 26.9849 s, 75.9 MB/s
+

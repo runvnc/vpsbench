@@ -51,7 +51,7 @@
         case "Disk Write":
         case "Disk Read":
           val = keep[4];
-          val = val.match(/[0-9]+\ [a-zA-Z]+\/s/);
+          val = val.match(/[0-9\.]+\ [a-zA-Z]+\/s/);
           val = val[0];
           val = val.split(' ');
           val = val[0];
