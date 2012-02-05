@@ -1,3 +1,4 @@
 A simple website, bash script, and node.js program for benchmarking VPS provider performance and displaying the results.
+NOTE: Do NOT deploy this without first altering the Google Adsense information in index.html.
 
 
