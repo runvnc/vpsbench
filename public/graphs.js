@@ -60,13 +60,8 @@
   };
 
   datatable = function(rows) {
-    var col, cols, key, out, row, val, _i, _j, _k, _len, _len2, _len3, _ref;
+    var col, cols, out, row, _i, _j, _k, _len, _len2, _len3;
     cols = ['Provider', 'RAM', 'IP address', 'Network', 'CPU', 'Disk Read', 'Disk Write', 'Total'];
-    _ref = rows[0];
-    for (key in _ref) {
-      val = _ref[key];
-      cols.push(key);
-    }
     out = "<table><thead>";
     for (_i = 0, _len = cols.length; _i < _len; _i++) {
       col = cols[_i];
