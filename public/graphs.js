@@ -1,5 +1,5 @@
 (function() {
-  var datatable, multisort, order, process, score;
+  var datatable, format, multisort, order, process, score;
 
   order = function(a, b) {
     var ret;
@@ -51,6 +51,14 @@
     return results;
   };
 
+  format = function(name, val) {
+    if (!(val != null)) {
+      return '';
+    } else {
+      return val;
+    }
+  };
+
   datatable = function(rows) {
     var col, cols, key, out, row, val, _i, _j, _k, _len, _len2, _len3, _ref;
     cols = [];
@@ -70,7 +78,7 @@
       out += "<tr>";
       for (_k = 0, _len3 = cols.length; _k < _len3; _k++) {
         col = cols[_k];
-        out += "<td>" + row[col] + "</td>";
+        out += "<td>" + (format(col, row[col])) + "</td>";
       }
       out += "</tr>";
     }

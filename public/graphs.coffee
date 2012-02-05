@@ -33,6 +33,12 @@ process = (results) ->
       console.log e
   results
     
+format = (name, val) ->
+  if not val?
+    ''
+  else
+    val
+
 datatable = (rows) ->
   cols = []
   for key, val of rows[0]
@@ -44,7 +50,7 @@ datatable = (rows) ->
   for row in rows
     out += "<tr>"
     for col in cols
-      out += "<td>#{row[col]}</td>"
+      out += "<td>#{format(col, row[col])}</td>"
     out += "</tr>"
   out += "</tbody></table>"
 
