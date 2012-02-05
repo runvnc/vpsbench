@@ -21,7 +21,7 @@
         return res.end(fs.readFileSync("dobench.sh"));
       case "/results":
         results = db.collection('results').find();
-        return res.end(results);
+        return res.end(JSON.stringify(results));
       case "/process":
         body = '';
         req.on('data', function(data) {

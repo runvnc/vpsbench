@@ -12,7 +12,7 @@ app = http.createServer (req, res) ->
     when "/dobench.sh" then   res.end fs.readFileSync("dobench.sh")
     when "/results"
       results = db.collection('results').find()
-      res.end results
+      res.end JSON.stringify(results)
     when "/process"
       body = ''
       req.on 'data', (data) ->
